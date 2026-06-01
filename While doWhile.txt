@@ -1,0 +1,104 @@
+1
+
+
+
+#include <stdio.h>
+
+int main() {
+    
+    
+    int numero;
+    int positivo = 0;
+    
+    do {
+        printf("Digite um numero (0 para sair)\n");
+        scanf("%d", &numero);
+        if (numero > 0) {
+            positivo++;
+        }
+        } while (numero != 0);
+
+        
+    printf("%d numeros positivos usados\n", positivo);
+    return 0;
+}
+
+
+
+
+
+2
+
+
+
+#include <stdio.h>
+
+int main() {
+    
+    int senha = 1234;
+    int tentativas = 3;
+    int user;
+    
+    while (tentativas > 0)
+    {
+        printf("Digite a senha: \n");
+        scanf("%d", &user);
+        if (user != 1234) 
+        {
+            tentativas--;
+            printf("Senha invalida, %d tentativas ate o bloqueio\n", tentativas);
+        } 
+        else if (senha == 1234) {
+            printf("Acesso liberado\n");
+            return 0;
+        }
+    } 
+    printf("Acesso bloqueado");
+    return 0;
+}
+
+
+
+3
+
+
+
+#include <stdio.h>
+
+int main() {
+    
+    int candidato1=0;
+    int candidato2=0;
+    int candidato3=0;
+    int voto;
+    
+    
+    do
+    {
+        printf("Para candidato 1 escreva 1\nPara candidato 2 escreva 2\nPara candidato 3 escreva 3\nPara sair escreva 4\nEscolha uma opcao: ");
+        scanf("%d", &voto);
+        switch(voto) {
+            case 1:
+            printf("Votou no candidato 1\n");
+            candidato1++;
+            break;
+            
+            case 2:
+            printf("Votou no candidato 2\n");
+            candidato2++;
+            break;
+            
+            case 3:
+            printf("Votou no candidato 3\n");
+            candidato3++;
+            break;
+            
+            default:
+            printf("Opcao invalida\n");
+        }
+        
+    } while (voto != 4);
+    
+    printf("Candidato1 com %d votos\nCandidato2 com %d votos\nCandidato3 com %d votos\n", candidato1, candidato2, candidato3);
+    return 0;
+}

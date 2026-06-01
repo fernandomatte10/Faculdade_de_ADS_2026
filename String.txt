@@ -1,0 +1,142 @@
+1.
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    
+    char nome[50];
+    int idade, i;
+    int tamanhonome;
+    
+    printf("Digite seu nome: \n");
+    fgets(nome, sizeof(nome), stdin);
+    nome[strcspn(nome, "\n")] = '\0';
+    
+    printf("Digite sua idade: \n");
+    scanf("%d", &idade);
+    
+    printf("Seu nome e %s e ele e %s, a primeira letra de seu nome e %c, ele tem %d caracteres, voce tem %d anos e e %s\n", nome, tamanhonome >= 15 ? "Grande" : "Curto" , nome[0] , tamanhonome = strlen(nome) , idade, idade >= 18 ? "Maior de idade" : "Menor de idade");
+    for(i = 0 ; i < strlen(nome) ; i++) {
+        printf("Posicao %d: %c\n", i, nome[i]);
+    }
+    
+    return 0;
+}
+
+
+2.
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    
+    char frase[100];
+    char busca[50];
+    int i, tamanhofrase, tamanhobusca;
+    
+    printf("Escreva uma frase: \n");
+    fgets(frase, sizeof(frase), stdin);
+    frase[strcspn(frase, "\n")] = '\0';
+    
+    printf("Agora escreva um trecho ou palavra de deseja buscar na frase: \n");
+    fgets(busca, sizeof(busca), stdin);
+    busca[strcspn(busca, "\n")] = '\0';
+    
+    tamanhofrase = strlen(frase);
+    
+    printf("A frase digitada e %s e ela e %s, o texto procurado e %s.\n", frase, tamanhofrase >= 30 ? "longa" : "curta" , busca);
+    if (strstr(frase, busca) != NULL) {
+        printf("O texto foi encontrado.\n");
+    } else {
+        printf("O texto nao foi encontrado.\n");
+    }
+    printf("Tamanho da frase: %d, tamanho da busca: %d.\n", tamanhofrase = strlen(frase), tamanhobusca = strlen(busca));
+
+    return 0;
+}
+
+
+3.
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    
+    char senha[50], valsenha[50];
+    char email[50], valemail[50];
+    char nome[50];
+    int idade, menu, tamanhonome;
+    
+    printf("Digite seu nome completo: \n");
+    fgets(nome, sizeof(nome), stdin);
+    nome[strcspn(nome, "\n")] = '\0';
+    
+    printf("Digite um email valido: \n");
+    fgets(email, sizeof(email), stdin);
+    email[strcspn(email, "\n")] = '\0';
+    
+    printf("Digite uma senha: \n");
+    fgets(senha, sizeof(senha), stdin);
+    senha[strcspn(senha, "\n")] = '\0';
+    
+    printf("Digite sua idade: \n");
+    scanf("%d", &idade);
+    printf("Conta criada com sucesso\n\n");
+    
+    tamanhonome = strlen(nome);
+    
+    while(1){
+        printf("Menu\n\n1 - Mostrar dados do usuario\n2 - Analisar nome\n3 - Validar email\n4 - Fazer login\n5 - Sair\n\n");
+        scanf("%d", &menu);
+        getchar();
+    
+        switch(menu){
+            case 1:
+                printf("Dados do usuario: \n\n");
+                printf("Nome: %s\nEmail: %s\nIdade: %d\nSituacao da idade: %s\n\n", nome, email, idade, idade >= 18 ? "Maior de idade" : "Menor de idade");
+                break;
+            case 2:
+                printf("Seu nome tem %d caracteres.\n\n", tamanhonome);
+                break;
+            case 3:
+                if (strchr(email, '@') != NULL && strstr(email, ".com") != NULL) {
+                    printf("O email e valido.\n\n");
+                } else {
+                    printf("O email e invalido.\n\n");
+                }    
+                break;
+            case 4:
+                printf("Digite seu email cadastrado: \n");
+                fgets(valemail, sizeof(valemail), stdin);
+                valemail[strcspn(valemail, "\n")] = '\0';
+                
+                if (strcmp(valemail, email) == 0) {
+                    printf("O email e valido.\n\n");
+                } else {
+                    printf("Email incorreto\n");
+                }
+                
+                printf("Digite sua senha: \n");
+                fgets(valsenha, sizeof(valsenha), stdin);
+                valsenha[strcspn(valsenha, "\n")] = '\0';
+                
+                if (strcmp(valsenha, senha) == 0) {
+                    printf("Senha correta.\n");
+                } else {
+                    printf("Senha incorreta\n");
+                }
+                break;
+            case 5:
+                printf("Saindo do sistema...\n");
+                return 0;
+            default:
+                printf("Opcao invalida\n\n");
+                break;
+        }
+    }    
+    
+    return 0;
+}

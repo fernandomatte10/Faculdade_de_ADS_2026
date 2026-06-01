@@ -1,0 +1,165 @@
+1.
+
+#include <stdio.h>
+
+int main() {
+    
+    double r1, r2, valor, comissao;
+    int metodo;
+    
+    printf("Programa de calculo de pagamento, selecione o metodo de pagamento\n1 - A vista\n2 - A prazo\n");
+    scanf("%d", &metodo);
+    
+    if(metodo == 1) {
+        printf("Metodo de pagamento a vista selecionado, escreva o valor da compra: \n");
+        scanf("%lf", &valor);
+        r1 = (valor * 10 / 100);
+        r2 =(valor - r1);
+        comissao = (r2 * 5) / 100;
+        printf("Valor final da compra de %.2lfR$ para %.2lfR$, comissao da venda de %.2lfR$\n", valor, r2, comissao);
+    } if(metodo == 2) {
+        printf("Metodo de pagamento a prazo selecionado, escreva o valor da compra: \n");
+        scanf("%lf", &valor);
+        r1 = (valor / 3);
+        comissao = (r1 * 2) / 100;
+        printf("Cada parcela ficou em %.2lfR$, comissao em %.2lf\n", r1, comissao);
+    } else {
+        printf("Opcao invalida");
+    }
+    return 0;
+}
+
+
+2.
+
+#include <stdio.h>
+
+int main() {
+    
+    int opcao, horas;
+    double valor;
+    
+    
+    printf("Programa auxiliar do estacionamento, digite quanto tempo vai ficar: \n");
+    scanf("%d", &horas);
+    printf("Agora selecione seu veiculo sendo as opcoes:\n1 - Moto\n2 - Carro\n3 - Caminhao\n");
+    scanf("%d", &opcao);
+    
+    switch (opcao) {
+        case 1:
+        valor = 5 * horas;
+        printf("Valor a pagar: %.2lfR$\n", valor);
+        break;
+        
+        case 2:
+        valor = 10 * horas;
+        printf("Valor a pagar: %.2lfR$\n", valor);
+        break;
+        
+        case 3:
+        valor = 20 * horas;
+        printf("Valor a pagar: %.2lfR$\n", valor);
+        break;
+        
+        default:
+        printf("Opcao invalida");
+        break;
+    }
+    return 0;
+}
+
+
+3.
+
+#include <stdio.h>
+
+int main() {
+    
+    int numero=1, resultado=0, n=-1, media=0;
+    
+    while(numero != 0) {
+    printf("Digite um numero ( 0 para sair )\n");
+    scanf("%d", &numero);
+    resultado = resultado + numero;
+    n++;
+    }
+    media = resultado / n;
+    printf("Quantidade de numeros = %d, media deles = %d\n", n, media);
+    
+    return 0;
+}
+
+
+4.
+
+#include <stdio.h>
+
+int main() {
+    
+    int h, m, s, reH, reM, resposta;
+    
+    printf("Escreva o tempo na ordem horas, minutos e segundos para fazer a conversao: \n");
+    scanf("%d %d %d", &h, &m, &s);
+    
+    reH = h * 3600;
+    reM = m * 60;
+    resposta = s + reH + reM;
+    printf("Valor em segundos: %d\n", resposta);
+    
+    return 0;
+}
+
+
+5.
+
+#include <stdio.h>
+
+int main() {
+    
+    int numero;
+    
+    printf("Digite um numero: \n");
+    scanf("%d", &numero);
+    
+    if (numero % 2 == 0) {
+        printf("Numero par\n"); 
+    } else {
+        printf("Numero impar\n");
+    }
+    
+    return 0;
+}
+
+
+Falta os <> na primeira linha
+Se escreve printf, faltou o \n, e faltou o ; no final
+Se usa %d para numero inteiro e faltou o & antes da variável
+se usa == para checar valor em vez de =, e não precisa do ; nesse caso
+no else também não precisa do ;
+faltou o ; no final do printf do else
+
+
+
+
+6. A
+
+7. E
+
+8. D
+
+9. A
+
+10. C
+
+11. B
+
+12. B
+
+13. C
+
+14. B
+
+15. C
+
+
+

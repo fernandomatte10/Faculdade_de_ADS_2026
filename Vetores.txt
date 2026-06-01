@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main() {
+    int produtos[8];
+    int total=0, maiorq=0,menorq=0,estoqueb=0,estoquem=0,estoquea=0;
+    float somamediaproduto=0, somamediaestoque=0, mediapro=0, mediaproestoque=0;
+    
+    for(int i = 0; i < 8; i++) {
+        printf("Quantidade do produto %d:\n", i);
+        scanf("%d", &produtos[i]);
+        
+        if(produtos[i] < 5) {
+            estoqueb++;
+        }
+        if(produtos[i] >= 5 && produtos[i] <=20) {
+            estoquem++;
+        }
+        if(produtos[i] > 20) {
+            estoquea++;
+        }
+        total += produtos[i];
+        somamediaproduto += produtos[i] / 8;
+    }
+    
+    for(int i = 0;i < 8; i++) {
+        if(produtos[i] < 5) {
+            printf("Produto %d: %d - Estoque baixo\n", i, produtos[i]);
+        }
+        if(produtos[i] >=5 && produtos[i] <= 20) {
+            printf("Produto %d: %d - Estoque na media\n", i, produtos[i]);
+        }
+        if(produtos[i] > 20) {
+            printf("Produto %d: %d - Estoque alto\n", i, produtos[i]);
+        }
+        
+    }
+    
+    printf("Total de produtos no estoque: %d\n", total);
+    printf("Produtos em estoque baixo = %d\nProdutos em estoque na media = %d\nProdutos em alto estoque = %d\n", estoqueb, estoquem, estoquea);
+    printf("Media de itens por produto: %.2f\n", somamediaproduto);
+    printf("Quantidade de produtos acima da media no estoque: %d\n", estoquea);
+    
+    return 0;
+}

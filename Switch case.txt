@@ -1,0 +1,132 @@
+Exercício:
+
+
+#include <stdio.h>
+
+int main() {
+    
+    int opcao;
+	double base, expoente, resultado;
+	
+	printf("1 - Metros para centimetros \n2 - Metros para milimetros \n3 - Metros para quilometros\n");
+	
+	printf("Escolha uma opcao:\n");
+	scanf("%d", &opcao);
+	
+	switch(opcao) {
+	    
+	    case 1:
+	    printf("Digite o numero: ");
+	    scanf("%lf", &base);
+	    
+	    resultado = base * 100;
+	    printf("%.2lf metro = %.2lf centimetros \n", base, resultado);
+	    break;
+	    
+	    case 2:
+	    printf("Digite o numero: ");
+	    scanf("%lf", &base);
+	    
+	    resultado = base * 1000;
+	    printf("%.2lf metros = %.2lf milimetros\n", base, resultado);
+	    break;
+	    
+	    case 3:
+	    printf("Digite o numero: ");
+	    scanf("%lf", &base);
+	    
+	    resultado = base / 1000;
+	    printf("%.2lf metros = %.4lf quilometros\n", base, resultado);
+	    break;
+	    
+	    default:
+	    printf("Opcao invalida\n");
+	    return 0;
+	    
+	}
+	
+	return 0;
+}
+
+
+
+
+
+
+Desafio:
+
+
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+
+	int opcao;
+	double base, expoente, resultado;
+
+	printf("1 - Soma.\n");
+	printf("2 - Subtracao.\n");
+	printf("3 - Divisao.\n");
+	printf("4 - Potencia.\n");
+	printf("5 - Raiz quadrada.\n");
+
+	printf("Escolha uma opcao: ");
+	scanf("%d", &opcao);
+
+	switch(opcao) {
+
+	case 1:
+		printf("Digite o primeiro numero: ");
+		scanf("%lf", &base);
+		printf("Digite o segundo numero: ");
+		scanf("%lf", &expoente);
+		resultado = base+expoente;
+
+		printf("%.2lf + %.2lf = %.2lf .\n", base, expoente, resultado);
+		break;
+
+	case 2:
+		printf("Digite o primeiro numero: ");
+		scanf("%lf", &base);
+		printf("Digite o segundo numero: ");
+		scanf("%lf", &expoente);
+		resultado = base-expoente;
+
+		printf("%.2lf - %.2lf = %.2lf .\n", base, expoente, resultado);
+		break;
+
+	case 3:
+		printf("Digite o primeiro numero: ");
+		scanf("%lf", &base);
+		printf("Digite o segundo numero: ");
+		scanf("%lf", &expoente);
+		resultado = base/expoente;
+
+		printf("%.2lf dividido por %.2lf = %.2lf .\n", base, expoente, resultado);
+		break;
+		
+	case 4:
+	   	printf("Digite o primeiro numero: ");
+		scanf("%lf", &base);
+		printf("Digite o segundo numero: ");
+		scanf("%lf", &expoente);
+		resultado = pow(base, expoente);
+		
+		printf("%.2lf sobre %.2lf = %.2lf .\n", base, expoente, resultado);
+		break;
+		
+	case 5:
+		 printf("Digite o numero: ");
+		 scanf("%lf", &base);
+		 resultado = sqrt(base);
+		 
+		 printf("Raiz quadrada de %.2lf = %.2lf .\n", base, resultado);
+		 break;
+		 
+	default:
+		printf("Opcao invalida");
+		return 0;
+	}
+	return 0;
+}

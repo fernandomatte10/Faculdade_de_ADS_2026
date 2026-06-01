@@ -1,0 +1,96 @@
+
+*Classificação de produto*
+
+
+
+#include <stdio.h>
+
+int main() {
+
+	char produto[50];
+	float valor;
+
+	printf("Qual o nome do produto?: ");
+	scanf("%s", produto);
+	printf("Qual o valor do produto?: ");
+	scanf("%f", &valor);
+
+	if (valor > 100) {
+		printf("O produto %s esta caro .\n", produto);
+	} else if (valor >= 20 && valor <= 100) {
+		printf("O produto %s tem preco medio .\n", produto);
+	}
+	else {
+		printf("O produto %s esta barato .\n", produto);
+	}
+
+	return 0;
+}
+
+
+
+
+*Sistema de calculo de frete*
+
+*Alternativa 1*
+
+
+
+#include <stdio.h>
+
+int main() {
+
+	float KG;
+	float valor;
+
+	printf("Quantos Kg tem o pacote?: ");
+	scanf("%f", &KG);
+
+	if (KG > 5) {
+		valor = 35;
+	} else if (KG > 1 && KG <= 5) {
+		valor = 20;
+	} else if (KG > 0 && KG <= 1) {
+		valor = 10;
+	}
+	else {
+		printf("Peso invalido");
+		return 0;
+	}
+	
+	printf("O valor do pacote ficou em %.2fR$ .\n", valor);
+
+	return 0;
+}
+
+
+
+*Alternativa 2*
+
+
+
+#include <stdio.h>
+
+int main() {
+
+	float KG;
+
+	printf("Quantos Kg tem o pacote?: ");
+	scanf("%f", &KG);
+
+	if (KG > 5) {
+		printf("O Valor ficou 35R$");
+	} else if (KG > 1 && KG <= 5) {
+		printf("O valor ficou 20R$");
+	} else if (KG > 0 && KG <= 1) {
+		printf("O valor ficou 10R$");
+	}
+	else {
+		printf("Peso invalido");
+	}
+
+	return 0;
+}
+
+
+

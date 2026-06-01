@@ -1,0 +1,171 @@
+1.
+
+#include <string.h>
+#include <stdio.h>
+
+struct alunos {
+    char nome[50];
+    int idade;
+    float nota;
+};
+
+int main() {
+
+struct alunos aluno[3];
+int i;
+
+for(i=0;i<3;i++){
+    printf("Digite o nome do aluno: \n", i + 1);
+    fgets(aluno[i].nome, sizeof(aluno[i].nome), stdin);
+    aluno[i].nome[strcspn(aluno[i].nome, "\n")] = '\0';
+    
+    printf("Digite a idade do aluno: \n", i + 1);
+    scanf("%d", &aluno[i].idade);
+    
+    printf("Digite a nota final do aluno: \n", i + 1);
+    scanf("%f", &aluno[i].nota);
+    
+    getchar();
+}
+printf("\nAlunos Cadastrados\n");
+for(i=0;i<3;i++){
+    printf("\nAluno %d\n", i + 1);
+    printf("Nome: %s\n", aluno[i].nome);
+    printf("Idade: %d\n", aluno[i].idade);
+    printf("Nota Final: %.2f\n", aluno[i].nota);
+    
+    if(aluno[i].nota>=7){
+        printf("Status: Aprovado\n");
+    } if(aluno[i].nota>=4 && aluno[i].nota <7){
+        printf("Status: Recuperacao\n");
+    } if(aluno[i].nota<4) {
+        printf("Status: Reprovado\n");
+    }
+}
+
+    return 0;
+}
+
+
+2.
+
+#include <string.h>
+#include <stdio.h>
+
+struct produtos {
+    int codigo, quantidade;
+    char nome[50];
+    float preco, valortotal;
+};
+
+int main() {
+
+struct produtos produto[5];
+int i;
+
+for(i=0;i<5;i++){
+    printf("Digite o codigo do produto: \n", i + 1);
+    scanf("%d", &produto[i].codigo);
+    getchar();
+    
+    printf("Digite o nome do produto: \n", i + 1);
+    fgets(produto[i].nome, sizeof(produto[i].nome), stdin);
+    produto[i].nome[strcspn(produto[i].nome, "\n")] = '\0';
+    
+    printf("Digite a quatidade em estoque desse produto: \n", i + 1);
+    scanf("%d", &produto[i].quantidade);
+    
+    printf("Digite o preco desse produto: \n", i + 1);
+    scanf("%f", &produto[i].preco);
+    
+    getchar();
+}
+printf("\nProdutos Cadastrados\n");
+for(i=0;i<5;i++){
+    printf("\nProduto %d\n", i + 1);
+    printf("Codigo do produto: %d\n", produto[i].codigo);
+    printf("Nome: %s\n", produto[i].nome);
+    printf("Quantidade em estoque: %d\n", produto[i].quantidade);
+    printf("Preco: %.2f\n", produto[i].preco);
+    printf("Valor total no estoque: %.2fR$\n", produto[i].valortotal = produto[i].preco * produto[i].quantidade);
+    
+    
+    if(produto[i].quantidade<5){
+        printf("Produto com estoque baixo\n");
+    }
+}
+
+    return 0;
+}
+
+
+3.
+
+#include <string.h>
+#include <stdio.h>
+
+struct funcionarios {
+    int codigo, idade;
+    char nome[50], setor[50];
+    float salario;
+};
+
+int main() {
+
+struct funcionarios funcionario[4];
+int i, salariomaior=0;
+float mediasalario=0, totalsalario=0;
+
+for(i=0;i<4;i++){
+    printf("Digite o codigo do funcionario: \n", i + 1);
+    scanf("%d", &funcionario[i].codigo);
+    getchar();
+    
+    printf("Digite o nome do funcionario: \n", i + 1);
+    fgets(funcionario[i].nome, sizeof(funcionario[i].nome), stdin);
+    funcionario[i].nome[strcspn(funcionario[i].nome, "\n")] = '\0';
+    
+    printf("Digite o setor do funcionario: \n", i + 1);
+    fgets(funcionario[i].setor, sizeof(funcionario[i].setor), stdin);
+    funcionario[i].setor[strcspn(funcionario[i].setor, "\n")] = '\0';
+    
+    printf("Digite a idade do funcionario: \n", i + 1);
+    scanf("%d", &funcionario[i].idade);
+    
+    printf("Digite o salario do funcionario: \n", i + 1);
+    scanf("%f", &funcionario[i].salario);
+    
+    totalsalario+=funcionario[i].salario;
+    
+    getchar();
+}
+for(i=1;i<4;i++){
+    if(funcionario[i].salario > funcionario[salariomaior].salario){
+        salariomaior=i;
+}
+mediasalario=totalsalario/4;
+printf("\nMedia de salario da empresa: %.2fR$\n", mediasalario);
+printf("\nFuncionarios Cadastrados\n");
+for(i=0;i<4;i++){
+    printf("\nFuncionario %d\n", i + 1);
+    printf("Codigo do funcionario: %d\n", funcionario[i].codigo);
+    printf("Nome: %s\n", funcionario[i].nome);
+    printf("Setor: %s\n", funcionario[i].setor);
+    printf("Idade: %d\n", funcionario[i].idade);
+    printf("Salario: %.2fR$\n", funcionario[i].salario);
+    if(funcionario[i].salario > mediasalario){
+        printf("Status salario: Acima da media\n");
+    }
+    if(funcionario[i].idade >= 18){
+        printf("Funcionario maior de idade\n");
+    }
+}
+}
+printf("\nFuncionario com maior salario:\n");
+printf("Codigo do funcionario: %d\n", funcionario[salariomaior].codigo);
+printf("Nome: %s\n", funcionario[salariomaior].nome);
+printf("Setor: %s\n", funcionario[salariomaior].setor);
+printf("Idade: %d\n", funcionario[salariomaior].idade);
+printf("Salario: %.2fR$\n", funcionario[salariomaior].salario);
+    return 0;
+}

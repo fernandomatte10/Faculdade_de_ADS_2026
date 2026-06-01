@@ -1,0 +1,296 @@
+1.
+
+
+
+#include <stdio.h>
+
+int main() {
+    
+    int temp[4][3];
+    int i, j, alerta=0, somadia=0, somahora=0, tempmaior=0, tempmenor=100, mediadia=0, mediahora=0;
+    //i=Dias e j=horas
+    
+    for(i=0 ; i<4 ; i++) {
+        for(j=0 ; j<3 ; j++) {
+            printf("Digite a temperatura %d do dia %d\n", j+1, i+1);
+            scanf("%d", &temp[i][j]);
+            
+            if(temp[i][j] >= 30){
+                alerta++;
+            }
+        }
+    }
+    
+    printf("\n----------------------------------\n");
+    
+    printf("\nMatriz das temperaturas formatada\n");
+    for(i=0 ; i<4 ; i++) {
+        printf("\n");
+        for(j=0 ; j<3 ; j++) {
+            printf("%d ",temp[i][j]);
+        }
+    }
+    
+    printf("\n\nRegistro das temperaturas\n");
+    for(i=0 ; i<4 ; i++) {
+        printf("\n");
+        printf("--------------Dia %d--------------\n", i+1);
+        for(j=0 ; j<3 ; j++) {
+            
+            printf("\nHorario %d\nTemperatura: %dC\n", j+1, temp[i][j]);
+            if(temp[i][j] >= 30){
+                printf("ALERTA TEMPERATURA ALTA!\n");
+                
+            }
+        }
+    }
+    
+    printf("\n----------------------------------\n");
+    
+    for(i=0 ; i<4 ; i++) {
+        somadia=0;
+        for(j=0 ; j<3 ; j++) {
+            somadia+=temp[i][j];
+        }
+        printf("\nMedia da temperatura do dia %d: %dC", i+1, mediadia=somadia/3);
+    }
+    
+    printf("\n");
+    
+    for(j=0 ; j<3 ; j++) {
+        somahora=0;
+        for(i=0 ; i<4 ; i++) {
+            somahora+=temp[i][j];
+        }
+        printf("\nMedia da temperatura do horario %d: %dC", j+1, mediahora=somahora/4);
+    }
+    
+    for(i=0 ; i<4 ; i++){
+        for(j=0 ; j<3 ; j++){
+            if(temp[i][j] > tempmaior) {
+                tempmaior=temp[i][j];
+            }
+        }
+    }
+    
+    for(i=0 ; i<4 ; i++){
+        for(j=0 ; j<3 ; j++){
+            if(temp[i][j] < tempmenor) {
+                tempmenor=temp[i][j];
+            }
+        }
+    }
+    
+    
+    printf("\n\nQuantidade de temperaturas em alerta: %d\n", alerta);
+    printf("\nMaior temperatura: %d\n", tempmaior);
+    printf("\nMenor temperatura: %d\n", tempmenor);
+    
+    return 0;
+}
+
+
+
+
+
+2.
+
+
+
+
+#include <stdio.h>
+
+int main() {
+    
+    int ava[5][3];
+    int i, j, menorq5=0, mediacliente=0, somacliente=0, mediaA=0, somaA=0, avamaior=0, avamenor=10, melhorC=0, piorC=0;
+    
+    printf("Deixe sua avaliacao de 0 a 10. A primeira sobre a Qualidade, a segunda sobre o Preco e a terceira sobre o Atendimento\n\n");
+    
+    for(i=0 ; i<5 ; i++) {
+        for(j=0 ; j<3 ; j++) {
+            printf("Digite a avaliacao %d do cliente %d\n", j+1, i+1);
+            scanf("%d", &ava[i][j]);
+            if(ava[i][j] < 5){
+                menorq5++;
+            }
+        }
+    }
+    
+    printf("\n----------------------------------\n");
+    
+    printf("\nRegistro das Avaliacoes\n");
+    for(i=0 ; i<5 ; i++) {
+        printf("\n");
+        printf("--------------Cliente %d--------------\n", i+1);
+        for(j=0 ; j<3 ; j++) {
+            printf("\nAvaliacao %d: %d\n", j+1, ava[i][j]);
+        }
+    }
+    
+    printf("\n----------------------------------\n");
+    
+    printf("\nMatriz das avaliacoes formatada\n");
+    for(i=0 ; i<5 ; i++) {
+        printf("\n");
+        for(j=0 ; j<3 ; j++) {
+            printf("%d ",ava[i][j]);
+        }
+    }
+    
+    printf("\n\n----------------------------------\n");
+    
+    for(i=0 ; i<5 ; i++) {
+        somacliente=0;
+        for(j=0 ; j<3 ; j++) {
+            somacliente+=ava[i][j];
+        }
+        printf("\nMedia de avaliacao do cliente %d: %d", i+1, mediacliente=somacliente/3);
+        if(mediacliente >= 7){
+            printf("\nCliente Satisfeito\n");
+        } else {
+            printf("\nCliente Insatisfeito\n");
+        }
+    }
+    
+    printf("\n\n----------------------------------\n");
+    
+    printf("\nQuantidade de avaliacoes menores que 5: %d\n", menorq5);
+    
+    
+    for(j=0 ; j<3 ; j++) {
+        somaA=0;
+        for(i=0 ; i<5 ; i++) {
+            somaA+=ava[i][j];
+        }
+        printf("\nMedia da avaliacao do criterio %d: %d", j+1, mediaA=somaA/5);
+        if(mediaA > avamaior) {
+            avamaior=mediaA;
+            melhorC=j+1;
+        }
+        if(mediaA < avamenor) {
+            avamenor=mediaA;
+            piorC=j+1;
+        }
+    }
+    
+    printf("\n\nCriterio melhor avaliado: %d\n", melhorC);
+    printf("\nCriterio pior avaliado: %d\n", piorC);
+    
+    
+    return 0;
+}
+
+
+
+
+3.
+
+
+
+
+#include <stdio.h>
+
+int main() {
+    
+    int pol[5][5] = {
+        {0,0,0,0,0},
+        {0,0,0,0,0},
+        {0,0,0,0,0},
+        {0,0,0,0,0},
+        {0,0,0,0,0}
+    };
+    int i, j, opcao, linha, coluna, livre=0, ocupado=0, fileiraMais=0, soma=0, media=0;
+    
+    
+    
+    do{
+        printf("\n-------------------------------------------------\n");
+        printf("\nControle de reserva de poltronas, lista de opcoes\n1 - Reservar poltrona\n2 - Cancelar reserva\n3 - Exibir mapa\n4 - Mostrar relatorio\n0 - Sair\n");
+        printf("\n-------------------------------------------------\n");
+        scanf("%d", &opcao);
+        switch(opcao){
+            case 0:
+            return 0;
+            
+            case 1:
+                printf("\nOpcao de reserva de poltrona selecionada, selecione uma poltrona (Considere Zero como um numero valido 0,1,2,3,4): \n");
+                printf("\n*O primeiro numero se refere a linha, e o segundo a coluna*\n");
+                while(1){
+                    scanf("%d %d", &linha, &coluna);
+                    if(linha >4 || linha <0 || coluna >4 || coluna <0){
+                        printf("\nUtilize apenas 0 ao 4 para as fileiras e para as colunas\nselecione outra poltrona: \n");
+                    }
+                    if(pol[linha][coluna]==0 && linha<5 && linha >0 && coluna <5 && coluna >0){
+                        pol[linha][coluna]=1;
+                        printf("Reserva efetuada com sucesso na fileira %d coluna %d\n", linha, coluna);
+                        break;
+                    } if(pol[linha][coluna]==1) {
+                        printf("Poltrona ocupada, escolha outra\n");
+                    }
+                }
+                break;
+            case 2:
+                printf("\nOpcao de cancelamento de reserva selecionada, escreva a fileira e coluda da poltrona para efetuar o cancelamento: \n");
+                while(1){
+                    scanf("%d %d", &linha, &coluna);
+                    if(linha >4 || linha <0 || coluna >4 || coluna <0){
+                        printf("\nUtilize apenas 0 ao 4 para as fileiras e para as colunas\nselecione outra poltrona: \n");
+                    }
+                    if(pol[linha][coluna]==1 && linha<5 && linha >0 && coluna <5 && coluna >0){
+                        pol[linha][coluna]=0;
+                        printf("Cancelamento da reserva efetuado com sucesso na fileira %d coluna %d\n", linha, coluna);
+                        break;
+                    } if(pol[linha][coluna]==0) {
+                        printf("Poltrona ja se encontra livre\n");
+                        break;
+                    }
+                }
+                break;
+            case 3:
+            printf("\nMapa das poltronas livres e ocupadas ( Considere 1 para ocupada e 0 para livre)\n");
+                for(i=0;i<5;i++){
+                    printf("\n");
+                        for(j=0;j<5;j++) {
+                            printf("%d ",pol[i][j]);
+                        }
+                }
+                break;
+            case 4:
+            printf("\n*Relatorio*\n");
+            ocupado=0;
+            livre=0;
+            for(i=0; i<5 ; i++) {
+                for(j=0 ; j<5 ; j++){
+                    if(pol[i][j] == 1){
+                        ocupado++;
+                    } else {
+                        livre++;
+                    }
+                    
+                }
+            }
+            for(i=0 ; i<5 ; i++) {
+                soma=0;
+                for(j=0 ; j<5 ; j++) {
+                    soma+=pol[i][j];
+                }
+                if(soma > media) {
+                    soma=media;
+                    fileiraMais=i;
+                }
+            }
+            printf("\nFileira mais ocupada: %d\n", fileiraMais);
+            printf("\nTotal de poltronas livres: %d\n", livre);
+            printf("\nTotal de poltronas ocupadas: %d\n", ocupado);
+            break;
+            
+            default:
+            printf("\nOpcao invalida, utilize de 0 ao 4\n");
+            break;
+        }
+            
+    }
+    while(opcao != 0);
+    return 0;
+}

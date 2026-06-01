@@ -1,0 +1,105 @@
+1.
+
+#include <stdio.h>
+
+int main() {
+    int alunos, aprovados = 0, reprovados = 0;
+    double nota, media;
+    
+    printf("Quantos alunos tem na sua turma: \n");
+    scanf("%d", &alunos);
+
+    for (int n = 1; n <= alunos; n++) {
+        printf("Qual a nota do aluno %d?: \n", n);
+        scanf("%lf", &nota);
+        media = media + nota;
+        if (nota > 6) {
+            aprovados++;
+        } else {
+            reprovados++;
+        }
+    }
+    printf("Alunos aprovados: %d\nAlunos reprovados: %d\n", aprovados, reprovados);
+    printf("Media da turma: %.2lf\n", media / alunos);
+
+    return 0;
+}
+
+
+
+2.
+
+#include <stdio.h>
+
+int main() {
+
+int operacoes, numero;
+double base1, base2, resultado;
+
+    printf("Quantos operacoes deseja fazer?\n");
+    scanf("%d", &operacoes);
+    
+    for (int n = 0; n < operacoes; n++) {
+        printf("1 - Soma\n2 - Subtracao\n3 - Multiplicacao\nEscolha uma operacao: \n");
+        scanf("%d", &numero);
+        
+        switch (numero) {
+            
+            case 1:
+            printf("Soma selecionada, escreva os numeros: \n");
+            scanf("%lf %lf", &base1, &base2);
+            resultado = base1 + base2;
+            printf("%.1lf + %.1lf = %.1lf\n", base1, base2, resultado);
+            break;
+            
+            case 2:
+            printf("Subtracao selecionada, escreva os numeros: \n");
+            scanf("%lf %lf", &base1, &base2);
+            resultado = base1 - base2;
+            printf("%.1lf - %.1lf = %.lf\n", base1, base2, resultado);
+            break;
+            
+            case 3:
+            printf("Multiplicacao selecionada, escreva os numeros: \n");
+            scanf("%lf %lf", &base1, &base2);
+            resultado = base1 * base2;
+            printf("%.1lf X %.1lf = %.1lf\n", base1, base2, resultado);
+            break;
+        }
+    }
+    return 0;
+}
+
+
+
+
+3.
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    
+    int positivo=0, negativo=0, zero=0, par=0, impar=0, base=0, numeros=0;
+
+    printf("Digite quantos numeros quer digitar: \n");
+    scanf("%d", &numeros);
+    
+    for (int n = 1; n <= numeros; n++) {
+        printf("Digite um numero\n");
+        scanf("%d", &base);
+        if (base < 0) {
+            negativo--;
+        } else {
+            positivo++;
+        } if (base == 0) {
+            zero++;
+        } if (base %2 == 0) {
+            par++;
+        } else {
+            impar++;
+        }
+    }    
+        printf("Positivos: %d\nNegativos: %d\nZeros: %d\nPares: %d\nImpares: %d\n", positivo, negativo, zero, par, impar);
+    return 0;
+}
