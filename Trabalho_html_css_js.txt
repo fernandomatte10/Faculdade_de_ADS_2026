@@ -1,0 +1,290 @@
+
+.........................................HTML.........................................
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+    
+    
+    <head>
+        
+        <link rel="stylesheet" href="style.css">
+        
+    </head>
+    
+    <body>
+        <div class="divisao_inicial">
+            <img class="logo" src="https://www.macoratti.net/maco10.gif">
+            <h1 class="titulo_inicial">C # - Validador de CNPJ, CPF e PIS</h1>
+        </div>
+        <hr size="0">
+        
+        <div class="div2">
+            <h1 class="titulo2">Algoritmo de Validação do CPF</h1>
+            <p>O algoritmo de validação do CPF calcula o primeiro dígito verificador a partir dos 9 primeiros dígitos do CPF, e em seguida, calcula o segundo dígito verificador a partir dos 9 (nove) primeiros dígitos do CPF, mais o primeiro dígito, obtido na primeira parte.</p>
+            <p class="div21">Tome como exemplo o CPF fictício : <strong>111.444.777-05</strong>.</p>
+            <p class="div22">a - Cálculo do primeiro dígito</p>
+            <p>O primeiro passo é calcular o primeiro dígito verificador, e para isso, separamos os primeiros 9 dígitos do CPF(<strong>111.444.777</strong>) e multiplicamos cada um dos números, da <strong>direita para a esquerda</strong> por números crescentes a partir do número 2, como no exemplo abaixo:</p>
+            
+            <table>
+                
+                <tr class="linha1">
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr class="linha2">
+                    <td>10</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>7</td>
+                    <td>6</td>
+                    <td>5</td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr class="linha3">
+                    <td>10</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>28</td>
+                    <td>24</td>
+                    <td>20</td>
+                    <td>28</td>
+                    <td>21</td>
+                    <td>14</td>
+                </tr>
+                
+            </table>
+            
+            <p>Multiplicamos cada digito do CPF pelo respectivo número e somamos cada um dos resultados : <strong style="color: blue;">10+9+8+28+24+20+28+21+14 = 162</strong></p>
+            <p>Pegamos o resultado obtido <strong>162 e dividimos por 11</strong>.  Consideramos como quociente apenas o valor inteiro.</p>
+            <strong style="color: blue;">162 / 11  =    14  com resto 8</strong>
+            <p>- Se o resto da divisão for menor que 2, então o dígito é igual a <strong>0 (Zero)</strong>.</p>
+            <p>- Se o resto da divisão for maior ou igual a 2, então o dígito verificador é igual a 11 menos o resto da divisão <strong>(11 - resto)</strong>.</p>
+            <p>No nosso exemplo temos que o resto é 8 então faremos <strong>11-8 = 3</strong></p>
+            <p>Logo o primeiro dígito verificador é 3. Então podemos escrever o CPF com os dois dígitos calculados :  <strong>111.444.777-3X</strong></p>
+            <strong>b - Cálculo do segundo dígito</strong>
+            <p>Para  calcular o segundo dígito vamos usar o primeiro digito já calculado. Vamos montar a mesma tabela de multiplicação usada no cálculo do primeiro dígito. Só que desta vez usaremos na segunda linha os valores 11,10,9,8,7,6,5,4,3,2 já que estamos incluindo mais um digito no cálculo(<i>o primeiro dígito calculado</i>):</p>
+            
+            <table>
+                
+                <tr class="linha1">
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr class="linha2">
+                    <td>11</td>
+                    <td>10</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>7</td>
+                    <td>6</td>
+                    <td>5</td>
+                    <td>4</td>
+                    <td>3</td>
+                    <td>2</td>
+                </tr>
+                
+                <tr class="linha3">
+                    <td>11</td>
+                    <td>10</td>
+                    <td>9</td>
+                    <td>32</td>
+                    <td>28</td>
+                    <td>24</td>
+                    <td>35</td>
+                    <td>28</td>
+                    <td>21</td>
+                    <td>6</td>
+                </tr>
+                
+            </table>
+            
+            <p>Novamente, efetuamos somamos o resultado da multiplicação :  <strong>11 + 10 + 9 + 32 + 28 + 24 + 35 + 28 + 21 + 6 = 204</strong></p>
+            <p>Dividimos o total do somatório por <strong>11</strong> e consideramos o resto da divisão.</p>
+            <strong>204 / 11  =  18  e  resto 6</strong>
+            <p>Após obter o resto da divisão, precisamos aplicar a mesma regra que utilizamos para obter o primeiro dígito:</p>
+            <p>- Se o resto da divisão for menor que 2, então o dígito é igual a <strong>0 (Zero)</strong>.</p>
+            <p>- Se o resto da divisão for maior ou igual a 2, então o dígito é igual a 11 menos o resto da divisão <strong>(11 - resto)</strong>.</p>
+            <p><strong>11-6 = 5</strong>   logo 5 é o nosso segundo dígito verificador.</p>
+            <p>Logo o nosso CPF fictício será igual a : <strong style="color: blue;">111.444.777-35</strong>.</p>
+            
+            
+            
+            <script src="index.js"></script>
+            <p>Abaixo um campo que diz se o CPF é válido ou não.</p>
+            <input class="CPF" type="text" placeholder="Digite aqui seu CPF">
+            <button onclick="avisar()" class="b1">Clique aqui</button>
+            
+            
+            <hr size="0">
+            <h5 style="color: blue" align="center">Fernando Matte</h5>
+        </div>
+        
+        
+        
+    </body>
+    
+</html>
+
+
+
+
+.........................................CSS.........................................
+
+
+
+
+body {
+    font-family: "Trebuchet MS", serif;
+}
+
+.divisao_inicial{
+    display: flex;
+}
+.logo{
+    position: relative;
+    top: 12px;
+    width: 200px;
+    height: 40px;
+}
+.titulo_inicial{
+    color: #000080;
+    font-family: Arial;
+}
+.titulo2{
+    color: #800080;
+    font-family: Arial;
+}
+.div21{
+    font-size: 10px;
+}
+.div22{
+    font-size: 10px;
+}
+
+table{
+    border-collapse: collapse;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+td{
+    font-weight: bold;
+    font-family: Arial;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    width: 50px;
+    border-width: 1px;
+}
+
+.linha1{
+    background-color: #ffffC1;
+    color: black;
+    font-family: Arial;
+    font-weight: bold;
+}
+.linha2{
+    color: red;
+    font-family: Arial;
+    font-weight: bold;
+}
+.linha3{
+    color: blue;
+    font-family: Arial;
+    font-weight: bold;
+}
+.b1{
+    border-style: solid;
+    border-color: black;
+}
+.b1:hover{
+     background-color: #ffffC1;
+}
+
+
+
+
+.........................................JS.........................................
+
+
+
+function avisar(){
+    
+    
+    let vetor_numero=document.querySelector(".CPF").value;
+    
+   let resultado1=0, resultado2=0;
+let soma1=0, soma2=0;
+let digito1=0, digito2=0;
+
+for(let i = 0; i < 9; i++){
+  resultado1 = vetor_numero[i] * (10 - i);
+  soma1 += resultado1;
+}
+divisao1 = soma1 % 11;
+
+if(divisao1 < 2){
+  digito1 = 0;
+} else {
+  digito1 = 11 - divisao1;
+}
+
+console.log(digito1, "...");
+
+//let vetor2 = vetor_numero.concat(digito1);
+//console.log(vetor2);
+
+console.log(vetor_numero);
+
+for(let i = 0; i < 10; i++){
+  resultado2 = vetor_numero[i] * (11 - i);
+  //console.log(resultado2);
+  soma2 += resultado2;
+}
+
+divisao2 = soma2 % 11;
+
+if(divisao2 < 2){
+  digito2 = 0;
+} else {
+  digito2 = 11 - divisao2;
+}
+
+console.log(digito2, "...");
+
+
+
+if(digito1 == vetor_numero[9] && digito2 == vetor_numero[10]){
+  alert("válido");
+}else{
+  alert("inválido");
+}
+
+}
+
+//let vetor3 = vetor2.concat(digito2);
+//console.log(vetor3);
