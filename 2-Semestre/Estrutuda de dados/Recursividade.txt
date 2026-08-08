@@ -1,0 +1,136 @@
+1.1
+
+
+#include <stdio.h>
+#include <string.h>
+
+int soma_iterativa(char numero[]) {
+    int tamanho = strlen(numero);
+    int vetor[tamanho];
+    int soma = 0;
+
+    for (int i = 0; i < tamanho; i++) {
+        // - '0' transforma o caractere do digito em seu valor numerico
+        vetor[i] = numero[i] - '0';
+        soma += vetor[i];
+    }
+    return soma;
+}
+int main() {
+    char numero[100];
+
+    while (1) {
+        printf("Escreva um numero para a soma dos digitos: ");
+        scanf("%s", numero);
+
+        // Verifica se o primeiro caractere e negativo ou zero
+        if (numero[0] == '-' || strlen(numero) == 1 && numero[0] == '0') {
+            printf("\ndigite apenas numeros positivos diferentes de zero!\n\n");
+        } else {
+            break;
+        }
+    }
+
+    printf("Soma dos digitos: %d\n", soma_iterativa(numero));
+
+    return 0;
+}
+
+
+1.2
+
+
+#include <stdio.h>
+#include <string.h>
+
+int soma_recursiva(char numero[], int posicao) {
+    int tamanho = strlen(numero);
+    
+    //Condicao de parada, caso base
+    if (posicao == tamanho) {
+        return 0;
+    }
+    // - '0' converte o char em int por assim dizer, antes armazenado algo como '1' '2' '3' vira 1 2 3. De forma resumida: - '0' transforma o caractere do digito em seu valor numerico.
+    return (numero[posicao] - '0') + soma_recursiva(numero, posicao + 1);
+}
+
+int main() {
+    char numero[100];
+
+    while (1) {
+        printf("Escreva um numero para a soma dos digitos: ");
+        scanf("%s", numero);
+
+        // == '-' verifica se o primeiro caractere e negativo, strlen(numero) == 1 && numero[0] == '0' verifica se existe algo dentro do vetor/string e se esse algo é 0 (Zero).
+        if (numero[0] == '-' || strlen(numero) == 1 && numero[0] == '0') {
+            printf("\nDigite apenas numeros positivos diferentes de zero!\n\n");
+        } else {
+            break;
+        }
+    }
+    
+    // Chama a funcao, comeca na posicao 0 (Zero) e printa o resultado.
+    printf("Soma dos digitos: %d\n", soma_recursiva(numero, 0));
+
+    return 0;
+}
+
+
+2.1
+
+
+#include <stdio.h>
+#include <string.h>
+
+void metodo_iterativo(char nome[]) {
+    int tamanho = strlen(nome);
+    
+    // tamanho-1 por causa que, se no caso for escrita a palavra CASA, o 4to caractere vai ser o \0 (indicador de final de frase).
+    for(int i=tamanho-1; i >= 0; i--){
+        printf("%c\n", nome[i]);
+    }
+}
+int main() {
+    char palavra[100];
+
+    printf("Escreva uma palavra: ");
+    scanf("%s", palavra);
+
+    metodo_iterativo(palavra);
+
+    return 0;
+}
+
+
+2.2
+
+
+#include <stdio.h>
+#include <string.h>
+
+void metodo_recursivo(char nome[], int posicao) {
+    int tamanho = strlen(nome);
+
+    //Condicao de parada, caso base
+    if (posicao == tamanho) {
+        return;
+    }
+
+    // Chama a funcao para a proxima posicao
+    metodo_recursivo(nome, posicao + 1);
+
+    // Printa depois da chamada, responsavel por inverter tudo, basicamente esse print vem depois de chamar a recursividade, ou seja, ele espera chegar até o final da frase, para acionar o posicao == tamanho e o começa retornar com o return; ai sim aciona o printf("%c\n", nome[posicao]); , ele espera o final para só ai então seguir com o código
+    printf("%c\n", nome[posicao]);
+}
+
+int main() {
+    char palavra[100];
+
+    printf("Escreva uma palavra: ");
+    scanf("%s", palavra);
+
+    // Comeca pela primeira posicao
+    metodo_recursivo(palavra, 0);
+
+    return 0;
+}
