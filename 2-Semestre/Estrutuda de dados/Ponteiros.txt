@@ -1,0 +1,63 @@
+1.
+
+Primeiro o valor de X fica em 15 pela soma de X + Y, logo o Y é alterado por 15 - 10, fazendo o Y valer 5, ao final X é alterado em 15 - 5, fazendo o X valer 10. De certa forma, o que o código faz é trocar os valores de Y e X
+
+
+2.
+
+
+#include <stdio.h>
+
+int maiornumero ( int * val1, int * val2, int * val3) {
+    int maior=0;
+
+    if(*val1 > maior){
+        maior = *val1;
+    }
+    if(*val2 > maior){
+        maior = *val2;
+    }
+    if(*val3 > maior){
+        maior = *val3;
+    }
+return maior;
+
+}
+
+int main() {
+    int n1=0, n2=0, n3=0, resultadof=0;
+
+    printf("Digite 3 numeros: \n");
+    scanf("%d %d %d", &n1, &n2, &n3);
+
+    printf("Maior numero: %d\n", resultadof = maiornumero(&n1, &n2, &n3));
+
+    return 0;
+}
+
+
+3.
+
+
+#include <stdio.h>
+
+void dobrarElementos(int *v1, int *v2, int *resultado) {
+    for (int i = 0; i < 5; i++) {
+        resultado[i] = v1[i] + v2[i];
+}}
+
+int main(void) {
+    int vetor1[5] = {1, 2, 3, 4, 5};
+    int vetor2[5] = {1, 2, 3, 4, 5};
+    int final[5];
+
+    dobrarElementos(vetor1, vetor2, final);
+
+    printf("\nSoma dos vetores:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", final[i]);
+    }
+
+return 0;
+
+}

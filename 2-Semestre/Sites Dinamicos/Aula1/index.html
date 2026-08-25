@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style/style.css">
+
+</head>
+<body>
+    <!-- <script src="js/animacoes.js"></script> -->
+    <div>
+        <h1 class="Titulo1">Guilherme</h1>
+        <video class="Video1" 
+        src="Video/Homem_dirigindo_tobata_na_fazenda_202608041940.mp4" 
+        width="640" height="360" autoplay loop></video>
+
+        <h1 class="Titulo2">Tobateiro</h1>
+
+    </div>
+
+    <button class="Botao1" onclick="desacelerar()">Desacelerar</button>
+    <button class="Botao2" onclick="acelerar()">Acelerar</button>
+
+    <script>
+        function acelerar(){
+            let nome = document.querySelector(".Video1");
+            nome.playbackRate = 2.0;//Valor pré setado para acelerar o vídeo
+            let a = document.querySelector(".Botao2");
+            a.style.backgroundColor = "red";//Muda a cor do botão para vermelho quando ele é precionado
+        }
+        function desacelerar(){
+            let nome = document.querySelector(".Video1");
+            nome.playbackRate = 0.2;//Valor pré setado para desacelerar o vídeo
+            let b = document.querySelector(".Botao1");
+            b.style.backgroundColor = "red";//Muda a cor do botão para vermelho quando ele é precionado
+        }
+    </script>
+
+    
+</body>
+</html>

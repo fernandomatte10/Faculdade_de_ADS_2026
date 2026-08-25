@@ -1,0 +1,36 @@
+.Titulo1{
+    text-align: center;
+    color: green;
+    font-size: 30px;
+    font-family: sans-serif;
+    margin-top: 150px;
+    text-shadow: 2px 2px 2px black
+    
+
+}
+.Titulo2{
+    text-align: center;
+    color: green;
+    font-size: 30px;
+    font-family: sans-serif;
+    margin-top: 150px;
+    text-shadow: 2px 2px 2px black
+
+    
+
+}
+.Video1{
+    border-style: solid;
+    border-radius: 20%;
+    border-width: 5px;
+    border-color: rgb(0, 0, 0);
+    box-shadow: 2px 2px 2px
+
+}
+div{
+    display: flex;
+}
+
+body{
+    background-color: rgb(81, 81, 81);
+}
