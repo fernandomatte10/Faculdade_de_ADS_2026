@@ -1,31 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
-        <title>Document</title>
+        <title>LoginADS</title>
+        <link rel="stylesheet" href="Style/Css.css">
 
     </head>
 
     <body>
 
-        <form id="id_form"> <!-- Faz o navegador entender que isso é um formulário, da pra apertar ENTER e o botão funciona -->
+        <!-- Faz o navegador entender que isso é um formulário, botão funciona ao apertar ENTER -->
+        <form id="id_form">
 
-            <label>Nome:</label>
-            <input type="text" id="id_nome">
+            <div class="formulario">
+                <h1>Formulário</h1>
 
-            <label>Idade:</label>
-            <input type="number" id="id_idade">
+                    <label>Nome:</label>
+                    <input class="nome" type="text" id="id_nome">
 
-            <label>Data de nascimento:</label>
-            <input type="date" id="id_data_nascimento">
+                    <label>Idade:</label>
+                    <input class="idade" type="number" id="id_idade">
 
-            <button type="button" onclick="vervalores()">ENVIAR</button>
+                    <label>Data de nascimento:</label>
+                    <input class="data-nascimento" type="date" id="id_data_nascimento">
+
+                    <!-- type="submit" em vez de type="button" para o Enter acionar o botão ENVIAR -->
+                    <button class="botao" type="submit" onclick="vervalores()">ENVIAR</button>
+
+            </div>
             
         </form>
 
-        <script src="javaS.js"></script>
-
-
+        <script src="JAVA_S/javaS.js"></script>
 
     </body>
 </html>

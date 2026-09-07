@@ -1,0 +1,47 @@
+body {
+    margin: 0; /* Remove a margem padrão do navegador, obs: boas praticas */
+    min-height: 100vh; /* Faz o body ocupar toda a altura da tela, evita imagem descentralizada e/ou cortada */
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-image: url('../IMGs/XP_Background.png'); /* Caminho para a imagem de fundo */
+
+    /* Centraliza o formulário */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column; /* Responsável por deixar os items um de baixo do outro */
+    width: 400px;
+    background-color: #f7f5f57c;
+    padding: 20px;  /* Cria um espaço interno entre a borda e os elementos */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Cria uma sombra ao redor da caixa */
+    margin: 50px auto;
+}
+
+.formulario h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.formulario label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.formulario input {
+    padding: 8px;
+}
+
+.data-nascimento {
+    cursor: pointer; /* Cursor do mouse vira aquela mãozinha */
+}
+
+.botao {
+    margin-top: 25px;
+    padding: 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #004e9a;
+    font-family: Arial, sans-serif;
+}
+
+/* Janela inteira */
+
+#id_form {
+    width: 550px;
+    border: 2px solid #1066D5;
+    border-radius: 5px;
+    box-shadow:
+        0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Barra superior */
+
+.cabecalho {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    border-radius: 3px 3px 0 0;
+    background: linear-gradient(
+        to bottom,
+        #2d72db,
+        #0d55c4
+    );
+}
+
+.texto {
+    color: white;
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px black;
+    display: flex;
+    gap: 8px;
+    bottom: -20px;
+    position: relative;
+}
+
+.texto1 {
+    color: white;
+    text-align: right;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px black;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.cabecalho h1 {
+    margin: 0;
+    color: white;
+    font-size: 17px;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Conteúdo da janela */
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+        to right,
+        #6185E6,
+        #9CBCF7,
+        #6185E6
+    );
+}
+
+.campoazul {
+    padding: 18px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ECEAD3;
+}
+
+.bordacolorida {
+    padding: 1px 0px 7px;
+    display: flex;
+    position: relative;
+    top: -18px;
+    width: 108%;
+    left: -4%;
+    background: linear-gradient(
+        to right,
+        #2d72db,
+        #E79E59,
+        #2d72db
+    );
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    width: 300px;
+    height: auto;
+    align-self: center;
+    position: relative;
+    top: 18px;
+}
+
+
+/* Campos */
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6px;
+}
+
+
+.campo label {
+    font-family: "Times New Roman", serif;
+    font-size: 15px;
+    margin-bottom: 2px;
+    position: relative;
+    top: 22px;
+    
+}
+
+
+.campo input {
+    height: 25px;
+    border: 1px solid #8d8d8d;
+    background-color: #f8f8f8;
+    width: 300px;
+    position: relative;
+    left: 20%;
+
+}
+
+
+/* Área dos botões */
+
+.botoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+
+/* Botões */
+
+.botao {
+    min-width: 70px;
+    height: 24px;
+    cursor: pointer;
+    background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #d8d8d8
+    );
+    border: 1px solid #777;
+    border-radius: 3px;
+    box-shadow:
+        inset 1px 1px white,
+        inset -1px -1px #aaa;
+}
+
+
+.botao:hover {
+    background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #c8d9f1
+    );
+}
+
+
+.botao:active {
+    transform: translateY(1px);
+    border: 2px solid #2d72db;
+}
