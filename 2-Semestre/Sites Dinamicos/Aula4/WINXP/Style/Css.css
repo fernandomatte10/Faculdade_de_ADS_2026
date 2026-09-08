@@ -1,7 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
     margin: 0;
     min-height: 100vh;
@@ -12,7 +8,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Janela inteira */
+/* Div tela de login inteira */
 
 #id_form {
     width: 550px;
@@ -22,7 +18,7 @@ body {
         0 0 10px rgba(0, 0, 0, 0.4);
 }
 
-/* Barra superior */
+/* Cabecalho/barra superior */
 
 .cabecalho {
     height: 45px;
@@ -43,9 +39,9 @@ body {
     font-size: 14px;
     text-shadow: 1px 1px 2px black;
     display: flex;
-    gap: 8px;
+    gap: 8px; /* Espacamento entre os elementos */
     bottom: -20px;
-    position: relative;
+    position: relative; /* Permite movimentacao de elementos */
 }
 
 .texto1 {
@@ -65,7 +61,7 @@ body {
     text-shadow: 1px 1px 2px black;
 }
 
-/* Conteúdo da janela */
+/* Conteudo da janela */
 
 .conteudo {
     display: flex;
@@ -78,7 +74,7 @@ body {
     );
 }
 
-.campoazul {
+.campologin {
     padding: 18px 20px 20px;
     display: flex;
     flex-direction: column;
@@ -94,14 +90,13 @@ body {
     left: -4%;
     background: linear-gradient(
         to right,
-        #2d72db,
+        #6185E6,
         #E79E59,
-        #2d72db
+        #6185E6
     );
 }
 
-
-/* Logo */
+/* Logo e escrita winxp */
 
 .logo {
     display: flex;
@@ -112,8 +107,7 @@ body {
     top: 18px;
 }
 
-
-/* Campos */
+/* Campos de ecrita e input */
 
 .campo {
     display: flex;
@@ -121,16 +115,14 @@ body {
     margin-bottom: 6px;
 }
 
-
 .campo label {
     font-family: "Times New Roman", serif;
     font-size: 15px;
     margin-bottom: 2px;
     position: relative;
-    top: 22px;
+    top: 23px;
     
 }
-
 
 .campo input {
     height: 25px;
@@ -142,8 +134,7 @@ body {
 
 }
 
-
-/* Área dos botões */
+/* Campo dos botoes */
 
 .botoes {
     display: flex;
@@ -151,9 +142,6 @@ body {
     gap: 8px;
     margin-top: 14px;
 }
-
-
-/* Botões */
 
 .botao {
     min-width: 70px;
@@ -171,7 +159,6 @@ body {
         inset -1px -1px #aaa;
 }
 
-
 .botao:hover {
     background: linear-gradient(
         to bottom,
@@ -179,7 +166,6 @@ body {
         #c8d9f1
     );
 }
-
 
 .botao:active {
     transform: translateY(1px);
