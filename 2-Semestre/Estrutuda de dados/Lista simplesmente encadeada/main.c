@@ -21,6 +21,9 @@ int main(void) {                                           // Ponto inicial de e
         printf("8 - Remover do fim\n");                    // Opcao que chama removeFim.
         printf("9 - Remover por valor\n");                 // Opcao que chama removeValor.
         printf("10 - Destruir lista\n");                   // Opcao que chama destroi.
+        printf("11 - Quantidade de Nos\n");
+        printf("12 - Inverter lista\n");
+        printf("13 - Remover valores duplicados\n");
         printf("0 - Sair\n");                              // Opcao para encerrar o programa.
         printf("Escolha: ");                               // Solicita a escolha ao usuario.
         scanf("%d", &opcao);                               // Le a opcao e grava na variavel opcao.
@@ -91,6 +94,22 @@ int main(void) {                                           // Ponto inicial de e
                 printf("Lista destruida!\n");              // Confirma a operacao.
                 break;                                     // Sai deste case e o menu sera mostrado novamente.
 
+            //******************Atividade******************
+ 
+            case 11:                                       // Usuario deseja ver quantos nos existem na lista
+                printf("Quantidade de Nos na lista: %d\n", tamanho(head));   // Exibe uma mensagem mostrando a quantidade de nos na lista
+                break;                                     // Sai da case
+
+            case 12:                                       // Usuario desaja inverter a lista
+                inverte(&head);                            // comeca pelo head varrendo a lista e por fim o head vira o fim
+                break;                                     // Sai da case
+            
+            case 13:                                       // Usuario deseja remover nos consecutivos de valores iguais
+                removeDuplicadosOrdenada(&head);           //Varre a lista ate achar valores iguais consecutivos e os deleta
+                break;                                     // Sai da case
+
+
+            
             case 0:                                        // Usuario escolheu encerrar o programa.
                 destroi(&head);                            // Garante que nenhuma memoria alocada fique sem free.
                 printf("Saindo...\n");                     // Mensagem final.

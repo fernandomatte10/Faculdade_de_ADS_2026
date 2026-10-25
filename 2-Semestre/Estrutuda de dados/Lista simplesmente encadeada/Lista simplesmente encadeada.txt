@@ -1,0 +1,26 @@
+24:
+
+
+1. head é um ponteiro do tipo No* que armazena o endereço do primeiro nó da lista, &head é o endereço da variável head e *headRef é responsável por acessar o head original
+
+2. Por que não tem mais nada depois do último nó, por isso fica null
+
+3. Por que não é necessário passar por toda a lista para inserir o valor
+
+4. Em tal situação, é O(n) pois vai ser necessário passar por todos os nós da fila até chegar no final, por isso se declara o tail quando se adiciona um valor no fim, assim a operação passa a ser O(1)
+
+5. Por que é necessário guardar o endereço do último nó, e para isso se procura o penúltimo para fazer a troca de endereço do mesmo, para o penúltimo virar o ultimo e então apontar para NULL
+
+6. Um loop ou comportamento indefinido, pois o ponteiro *atual seria liberado e o enredeço do próximo no se perderia, e quando fosse fazer ( No *proximo = atual->prox; ) ele tentaria acessar o prox de um nó com memória já liberada
+
+7. O programa libeado esse nó por ser inutilizado, pois sua possição ultrapassar a lista, evitando problemas maiores de inserção
+
+8. Apenas se o nó head atual ser NULL ou se o dado precisar vir antes do valor atual do head
+
+9. Seu comportamento necessita buscar ser antecessor pois precisa de seu endereço e do próximo ( o nó com o valor buscado ) para remover seu valor e possibilitar religar o antecessor com o próximo nó da lista com segurança
+
+10. Um vetor tem elementos contínuos e consecutivos na memória, o acesso pelo índice é de peso O(1) eseu tamanho pode ser pré-definido ou dinamico com ajuda de um ponteiro. A lista cresce e diminui dinamicamente porém seu acesso a indices em seu meio necesitam varrer toda a lista, tendo peso O(n), e também seus nós podem estar dispersos na memória
+
+
+25: 
+

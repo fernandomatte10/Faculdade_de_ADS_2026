@@ -118,6 +118,83 @@ void imprime(const No *head) {                             // Recebe head apenas
     printf("NULL\n");                                      // Mostra explicitamente o final da lista.
 }                                                          // Finaliza a funcao de impressao.
 
+
+
+
+
+/*
+***************************ATIVIDADES***************************
+*/
+
+// =============================================================
+// CONSULTA DE TAMANHO *****************************************
+// =============================================================
+int tamanho(const No* head) {                                   // Recebe head apenas para a leitura
+    const No *aux = head;                                       // Aux comeca apontando para o primeiro no
+    int tamanholista=0;                                         // Variavel de numeros inteiros para armazenar quantidade de nos da lista
+
+    while (aux != NULL) {                                       // Repete enquanto existir nos na lista
+        tamanholista++;                                         // Aumenta em 1 a variavel de contagem
+        aux = aux->prox;                                        // Avanca para o proximo no
+    }
+    return tamanholista;                                        // Retorna a quantidade de nos na lista
+}                                                               // Fim da funcao                
+
+// =============================================================
+// INVERTE A ORDEM DA LISTA ************************************
+// =============================================================
+void inverte(No **headRef) {                                    // Inicializa a funcao pelo head
+
+    if (*headRef == NULL) {                                     // Testa se a lista esta vazia
+        printf("Lista vazia!\n");                               // Se sim ele exibe uma mensagem de lista vazia
+        return;                                                 // Encerra a funcao
+    }
+
+    No *anterior = NULL;                                        // Cria um No que vai receber os nos anteriores e aponta para NULL
+    No *proximo = NULL;                                         // Cria um No que vai receber o proximo No do atual e aponta para NULL  
+    No *aux = *headRef;                                         // No auxiliar apontando para o Head
+
+    while (aux != NULL) {                                       // Repete enquanto existir nos na lista
+        proximo = aux->prox;                                    // No proximo recebe o endereco do proximo no da lista
+        aux->prox = anterior;                                   // O proximo No vira o anterior
+        anterior = aux;                                         // Anterior salva o endereco do aux
+        aux = proximo;                                          // Aux se iguala ao proximo
+    }
+
+    *headRef = anterior;                                        // Head agora e o ultimo
+    printf("Lista invertida\n");                                // Exibe uma mensagem de conclusao da operacao
+}                                                               // Fim da funcao
+
+// =============================================================
+// REMOVE NOS CONSECUTIVOS DE VALORES IGUAIS *******************
+// =============================================================
+
+void removeDuplicadosOrdenada(No** headRef) {                   // Inicializa pelo head       
+    if (*headRef == NULL) {                                     // Testa se a lista esta vazia
+        printf("Lista vazia!\n");                               // Se sim ele exibe uma mensagem de lista vazia
+        return;                                                 // Encerra a funcao
+    }
+    
+    No *aux = *headRef;                                         // Declara No auxiliar apontando para head
+    No *temp=NULL;                                              // Declara um No para valores temporarios
+    
+    while (aux->prox != NULL) {                                 // Repete enquanto existem nos na lista
+        if (aux->dado == aux->prox->dado) {                     // Compara se o dado do No atual e e igual ao dado do proximo No  
+            temp = aux->prox;                                   // Se sim temp recebe o endereco do endereco apontado pelo No atual
+            aux->prox = temp->prox;                             // Agora o proximo pula e aponta para o novo No
+            free(temp);                                         // Limpa o valor detectado igual 
+        } else {                                                // Caso contraio
+            aux = aux->prox;                                    // Ele continua varrendo a lista
+        }
+        
+    }
+    printf("Operacao concluida\n");                             // Exibe uma mensagem de conclusao da operacao
+}
+
+
+
+
+
 // =============================================================
 // BUSCA LINEAR
 // =============================================================
@@ -156,13 +233,13 @@ void removeInicio(No **headRef) {                          // Recebe o endereco 
 void removeFim(No **headRef) {                             // Recebe o endereco de head.
     if (*headRef == NULL) {                                // Caso 1: lista vazia.
         printf("Lista vazia!\n");                          // Nao existe no para remover.
-        return;                                             // Encerra a funcao.
+        return;                                            // Encerra a funcao.
     }                                                      // Finaliza o caso de lista vazia.
 
     if ((*headRef)->prox == NULL) {                        // Caso 2: existe exatamente um no.
         free(*headRef);                                    // Libera o unico no existente.
         *headRef = NULL;                                   // Atualiza head para representar lista vazia.
-        return;                                             // Encerra porque a remocao foi concluida.
+        return;                                            // Encerra porque a remocao foi concluida.
     }                                                      // Finaliza o caso de um unico no.
 
     No *aux = *headRef;                                    // Caso 3: comeca no primeiro no.
@@ -181,12 +258,12 @@ void removeFim(No **headRef) {                             // Recebe o endereco 
 void removeValor(No **headRef, int valor) {                // Remove a primeira ocorrencia do valor.
     if (*headRef == NULL) {                                // Caso 1: lista vazia.
         printf("Lista vazia!\n");                          // Nao existe valor algum para procurar.
-        return;                                             // Encerra sem alterar a lista.
+        return;                                            // Encerra sem alterar a lista.
     }                                                      // Finaliza o caso de lista vazia.
 
     if ((*headRef)->dado == valor) {                       // Caso 2: valor esta no primeiro no.
         removeInicio(headRef);                             // Reutiliza a funcao correta para remover o inicio.
-        return;                                             // Encerra porque a remocao ja ocorreu.
+        return;                                            // Encerra porque a remocao ja ocorreu.
     }                                                      // Finaliza o caso do primeiro no.
 
     No *aux = *headRef;                                    // Aux aponta para o no ANTERIOR ao candidato.
@@ -197,7 +274,7 @@ void removeValor(No **headRef, int valor) {                // Remove a primeira 
 
     if (aux->prox == NULL) {                               // Se nao existe proximo no, o valor nao foi encontrado.
         printf("Valor nao encontrado!\n");                 // Informa o resultado da busca.
-        return;                                             // Encerra sem modificar a lista.
+        return;                                            // Encerra sem modificar a lista.
     }                                                      // Finaliza o caso de valor inexistente.
 
     No *temp = aux->prox;                                  // Temp guarda o endereco exato do no a remover.

@@ -16,7 +16,34 @@ void insereFim(No **headRef, int valor);                   // Insere depois do u
 void inserePosicao(No **headRef, int valor, int pos);      // Insere em um indice.
 void insereOrdenado(No **headRef, int valor);              // Insere mantendo ordem crescente.
 
+
+
+
+//******************Atividade******************
+
+
+// Prototipo da operacao de consulta de quantidade de nos.
+
+int tamanho(const No* head); //Quantidade de Nos na lista
+
+
+
+// Prototipo da operacao de inversao da ordem da lista.
+
+void inverte(No** headRef); //Percorre e inverte a lista
+
+
+
+// Prototipo da operacao de remoção de nós consecutivos que possuam valores repetidos.
+
+void removeDuplicadosOrdenada(No** headRef); //Percorre a lista e deleta nos consecutivos com valores iguais
+
+
+
+
+
 // Prototipos das operacoes de consulta/percurso.
+
 void imprime(const No *head);                              // Percorre e exibe os valores sem alterar a lista.
 No* busca(No *head, int valor);                            // Procura valor e devolve o endereco do no.
 
