@@ -1,0 +1,10 @@
+/* Mantém as quebras de linha no conteúdo do elemento */
+#id_historico {
+    white-space: pre-line;
+}
+.Push {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
