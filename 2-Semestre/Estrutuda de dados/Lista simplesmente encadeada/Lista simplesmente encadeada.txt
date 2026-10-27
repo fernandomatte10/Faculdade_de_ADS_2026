@@ -20,7 +20,3 @@
 9. Seu comportamento necessita buscar ser antecessor pois precisa de seu endereço e do próximo ( o nó com o valor buscado ) para remover seu valor e possibilitar religar o antecessor com o próximo nó da lista com segurança
 
 10. Um vetor tem elementos contínuos e consecutivos na memória, o acesso pelo índice é de peso O(1) eseu tamanho pode ser pré-definido ou dinamico com ajuda de um ponteiro. A lista cresce e diminui dinamicamente porém seu acesso a indices em seu meio necesitam varrer toda a lista, tendo peso O(n), e também seus nós podem estar dispersos na memória
-
-
-25: 
-
