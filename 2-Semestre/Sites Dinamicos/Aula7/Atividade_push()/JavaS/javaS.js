@@ -38,18 +38,25 @@ limpar.addEventListener("click", function(event) {             // Função para 
 
 });
 
-transformar.addEventListener("click", function(event) {             // Função para transformar o vetor (Função de auxílio temporaria)
-    event.preventDefault();                                         // Impede que a pagina atualize sozinha
+transformar.addEventListener("click", function(event) {         // Função para transformar o vetor (Função de auxílio temporaria)
+    event.preventDefault();                                     // Impede que a pagina atualize sozinha
     let vetorConvert = [];
-    const opcaoes = document.querySelector("#opcoes").value;     // Recupera o valor selecionado no select
+    const opcaoes = document.querySelector("#opcoes").value;    // Recupera o valor selecionado no select
     if(opcaoes === "opcao1") {
-        vetorConvert = vetor.map(item => Number(item));            // Converte os valores do vetor para números
+        vetorConvert = vetor.map(item => Number(item));         // Converte os valores do vetor para números
         
-        vetorConvert = vetor.map(function (vet) {
-        return vet * dolar;
-    });
-
-        document.querySelector("#vetorconvertido").textContent = `[${vetorConvert.join(", ")}]`;
+        vetorConvert = vetor.map(function (vet) {               // Função para iniciar conversão do vetor
+        return vet * dolar;                                     // Converte os valores em dolar
+        });
     }
+
+    if(opcaoes === "opcao2") {
+        vetorConvert = vetor.map(item => Number(item));         // Converte os valores do vetor para números
+        
+        vetorConvert = vetor.map(function (vet) {               // Função para iniciar conversão do vetor
+        return vet * euro;                                     // Converte os valores em dolar
+        });
+    }
+    document.querySelector("#vetorconvertido").textContent = `[${vetorConvert.join(", ")}]`;
 
 });
