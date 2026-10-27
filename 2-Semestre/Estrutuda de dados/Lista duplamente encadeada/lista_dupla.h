@@ -53,4 +53,21 @@ void removeFim(Lista* L);
 // Remove a primeira ocorrência de um determinado valor.
 void removeValor(Lista* L, int valor);
 
+
+
+/*------------------------------------------------------------------------
+********************************Atividades********************************
+*/------------------------------------------------------------------------
+
+// Insere depois de um no especifico
+void insereDepois(Lista* L, No* p, int valor);
+
+
+
+
+
+
+
+
+
 #endif                                       // Finaliza a proteção contra inclusões duplicadas.

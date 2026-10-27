@@ -189,3 +189,49 @@ void removeValor(Lista* L, int valor) {
     free(p);                                    // Libera a memória do nó removido.
     L->n--;                                     // Decrementa a quantidade de nós.
 }
+
+
+
+/*------------------------------------------------------------------------
+********************************Atividades********************************
+*/------------------------------------------------------------------------
+
+
+
+void insereDepois(Lista* L, No* p, int valor) { // Insere depois de um No especifico
+   
+    if (listaVazia(L)) {                        // Verifica se a lista possui elementos.
+        printf("Lista vazia!\n");               // Informa que a lista está vazia.
+        return;                                 // Encerra a função sem realizar alterações.
+    }
+   
+    No* p = busca(L, valor);                    // Busca a primeira ocorrência do valor.
+   
+    if (p == NULL) {                            // Verifica se o valor não foi encontrado.
+        printf("Valor nao existe!\n");          // Informa que o valor não existe na lista.
+        return;                                 // Encerra a função sem alterar a lista.
+    }
+   
+    No* novo = malloc(sizeof(No));
+    if(novo == NULL) {
+        perror("malloc falhou");
+        exit(EXIT_FAILURE);
+    }
+   
+    novo->dado = valor;
+    novo->prox = p->ant;
+    novo->ant = p->prox;
+   
+   
+    
+}
+
+
+
+
+
+
+
+
+
+
