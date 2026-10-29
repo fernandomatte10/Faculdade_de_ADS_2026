@@ -211,15 +211,46 @@ void insereDepois(Lista* L, No* p, int valor) { // Insere depois de um No especi
         printf("Valor não encontrado!\n");      // Informa que o valor não existe na lista.
         return;                                 // Encerra a função sem alterar a lista.
     }
-    
-    if (p->ant != NULL)                         // Verifica se existe um nó anterior.
-        p->ant->prox = p->prox;                 // Conecta o anterior ao próximo nó.
-    else                                        // Caso o nó removido seja o primeiro.
-        L->ini = p->prox;                       // Atualiza o início da lista.
-
-    if (p->prox != NULL)                        // Verifica se existe um próximo nó.
-        p->prox->ant = p->ant;                  // Conecta o próximo ao nó anterior.
-    else                                        // Caso o nó removido seja o último.
-        L->fim = p->ant;                        // Atualiza o final da lista.
         
+    No* novo = malloc(sizeof(No));              // Aloca memória para o novo nó.
+
+    if (novo == NULL) {                         // Verifica se a alocação de memória falhou.
+        perror("malloc falhou");                // Exibe uma mensagem de erro.
+        exit(EXIT_FAILURE);                     // Encerra o programa em caso de falha.
+    }
+    
+    novo->dado = valor;                         // Armazena o valor no novo nó.
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        void insereInicio(Lista* L, int valor) {
+    No* novo = malloc(sizeof(No));              // Aloca memória para o novo nó.
+
+    if (novo == NULL) {                         // Verifica se a alocação de memória falhou.
+        perror("malloc falhou");                // Exibe uma mensagem de erro.
+        exit(EXIT_FAILURE);                     // Encerra o programa em caso de falha.
+    }
+
+    novo->dado = valor;                         // Armazena o valor no novo nó.
+    novo->ant = NULL;                           // O novo primeiro nó não possui anterior.
+    novo->prox = L->ini;                        // Aponta para o antigo primeiro nó.
+
+    if (L->ini != NULL)                         // Verifica se a lista já possui elementos.
+        L->ini->ant = novo;                     // Atualiza o anterior do antigo primeiro nó.
+    else                                        // Caso a lista esteja vazia.
+        L->fim = novo;                          // O novo nó também será o último.
+
+    L->ini = novo;                              // Atualiza o início da lista.
+    L->n++;                                     // Incrementa a quantidade de nós.
 }
