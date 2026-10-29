@@ -16,6 +16,7 @@ int main(void) {
         printf("7 - Remover do fim\n");             // Opção 7.
         printf("8 - Remover por valor\n");          // Opção 8.
         printf("9 - Destruir lista\n");             // Opção 9.
+        printf("10 - Insere depois de um No especifico\n");
         printf("0 - Sair\n");                       // Opção 0.
         printf("Escolha: ");                        // Solicita a opção desejada.
 
@@ -96,6 +97,19 @@ int main(void) {
 
                 break;                              // Encerra o caso atual.
             }
+
+            case 10:
+            
+                printf("Valor: ");                  // Solicita o valor a ser procurado.
+                scanf("%d", &valor);                // Lê o valor digitado.
+
+                No* p = busca(L, valor);            // Busca o nó e recebe seu endereço ou NULL.
+
+                if (p != NULL) {                    // Verifica se o valor foi encontrado.
+                    printf("Encontrado! Valor = %d | Endereco = %p\n", p->dado, (void*) p); // Exibe o valor e o endereço do nó.
+                } else {                            // Executa caso o valor não seja encontrado.
+                    printf("Valor nao encontrado.\n"); // Informa que o valor não existe.
+                }
 
             case 0: {                               // Encerra o programa.
                 destroiLista(L);                    // Libera a memória da lista.

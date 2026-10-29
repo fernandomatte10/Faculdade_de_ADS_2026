@@ -194,44 +194,32 @@ void removeValor(Lista* L, int valor) {
 
 /*------------------------------------------------------------------------
 ********************************Atividades********************************
-*/------------------------------------------------------------------------
+------------------------------------------------------------------------*/
 
 
 
 void insereDepois(Lista* L, No* p, int valor) { // Insere depois de um No especifico
-   
+
     if (listaVazia(L)) {                        // Verifica se a lista possui elementos.
         printf("Lista vazia!\n");               // Informa que a lista está vazia.
         return;                                 // Encerra a função sem realizar alterações.
     }
-   
-    No* p = busca(L, valor);                    // Busca a primeira ocorrência do valor.
-   
+
+    p = busca(L, valor);                        // Busca a primeira ocorrência do valor.
+
     if (p == NULL) {                            // Verifica se o valor não foi encontrado.
-        printf("Valor nao existe!\n");          // Informa que o valor não existe na lista.
+        printf("Valor não encontrado!\n");      // Informa que o valor não existe na lista.
         return;                                 // Encerra a função sem alterar a lista.
     }
-   
-    No* novo = malloc(sizeof(No));
-    if(novo == NULL) {
-        perror("malloc falhou");
-        exit(EXIT_FAILURE);
-    }
-   
-    novo->dado = valor;
-    novo->prox = p->ant;
-    novo->ant = p->prox;
-   
-   
     
+    if (p->ant != NULL)                         // Verifica se existe um nó anterior.
+        p->ant->prox = p->prox;                 // Conecta o anterior ao próximo nó.
+    else                                        // Caso o nó removido seja o primeiro.
+        L->ini = p->prox;                       // Atualiza o início da lista.
+
+    if (p->prox != NULL)                        // Verifica se existe um próximo nó.
+        p->prox->ant = p->ant;                  // Conecta o próximo ao nó anterior.
+    else                                        // Caso o nó removido seja o último.
+        L->fim = p->ant;                        // Atualiza o final da lista.
+        
 }
-
-
-
-
-
-
-
-
-
-
