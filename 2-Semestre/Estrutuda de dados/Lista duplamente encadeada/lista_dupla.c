@@ -198,40 +198,42 @@ void removeValor(Lista* L, int valor) {
 
 
 
-void insereDepois(Lista* L, No* p, int valor) { // Insere depois de um No especifico.
+void insereDepois(Lista* L, No* p, int valor) { // Insere depois de um No especifico
 
-    if (listaVazia(L)) {                        // Verifica se a lista possui elementos.
-        printf("Lista vazia!\n");               // Informa que a lista está vazia.
-        return;                                 // Encerra a função sem realizar alterações.
+    if (listaVazia(L)) {                        // Verifica se a lista possui elementos
+        printf("Lista vazia!\n");               // Informa que a lista está vazia
+        return;                                 // Encerra a função sem realizar alterações
     }
 
-    p = busca(L, valor);                        // Busca a primeira ocorrência do valor.
+    p = busca(L, valor);                        // Busca a primeira ocorrência do valor
 
-    if (p == NULL) {                            // Verifica se o valor não foi encontrado.
-        printf("Valor não encontrado!\n");      // Informa que o valor não existe na lista.
-        return;                                 // Encerra a função sem alterar a lista.
+    if (p == NULL) {                            // Verifica se o valor não foi encontrado
+        printf("Valor não encontrado!\n");      // Informa que o valor não existe na lista
+        return;                                 // Encerra a função sem alterar a lista
     }
         
-    No* novo = malloc(sizeof(No));              // Aloca memória para o novo nó.
+    No* novo = malloc(sizeof(No));              // Aloca memória para o novo nó
 
-    if (novo == NULL) {                         // Verifica se a alocação de memória falhou.
-        perror("malloc falhou");                // Exibe uma mensagem de erro.
-        exit(EXIT_FAILURE);                     // Encerra o programa em caso de falha.
+    if (novo == NULL) {                         // Verifica se a alocação de memória falhou
+        perror("malloc falhou");                // Exibe uma mensagem de erro
+        exit(EXIT_FAILURE);                     // Encerra o programa em caso de falha
     }
     
-    printf("Valor para inserir: ");
-    scanf("%d", &valor);
+    printf("Valor para inserir: ");             // Solicita o valor a ser inserido
+    scanf("%d", &valor);                        // Lê o valor digitado
 
-    if(p->prox == NULL) {                       // Verifica se o nó especificado é o último da lista.
-        insereFim(L, valor);                    // Se for, insere no final da lista.
-        return;                                 // Encerra a função após a inserção.
+    if(p->prox == NULL) {                       // Verifica se o nó especificado é o último da lista
+        insereFim(L, valor);                    // Se for, insere no final da lista
+        return;                                 // Encerra a função após a inserção
     }
-    if(p->prox != NULL) {                       // Verifica se o nó especificado não é o último da lista.
-        novo->dado = valor;                     // Armazena o valor no novo nó.
-        novo->prox = p->prox;                   // O próximo do novo nó aponta para o próximo do nó especificado.
-        novo->ant = p;                          // O anterior do novo nó aponta para o nó especificado.
-        p->prox->ant = novo;                    // O anterior do próximo nó aponta para o novo nó.
-        p->prox = novo;                         // O próximo do nó especificado aponta para o novo nó.
+
+    if(p->prox != NULL) {                       // Verifica se o nó especificado não é o último da lista
+        novo->dado = valor;                     // Armazena o valor no novo nó
+        novo->prox = p->prox;                   // O próximo do novo nó aponta para o próximo do nó especificado
+        novo->ant = p;                          // O anterior do novo nó aponta para o nó especificado
+        p->prox->ant = novo;                    // O anterior do próximo nó aponta para o novo nó
+        p->prox = novo;                         // O próximo do nó especificado aponta para o novo nó
     }
-    L->n++;                                     // Incrementa a quantidade de nós na lista.
+    
+    L->n++;                                     // Incrementa a quantidade de nós na lista
 }

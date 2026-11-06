@@ -62,11 +62,11 @@ void removeValor(Lista* L, int valor);
 // Insere depois de um no especifico
 void insereDepois(Lista* L, No* p, int valor);
 
+// Insere antes de um no especifico
+void insereAntes(Lista* L, No* p, int valor);
 
-
-
-
-
+// Insere de forma ordenada na lista
+void insereOrdenado(Lista* L, int valor);
 
 
 

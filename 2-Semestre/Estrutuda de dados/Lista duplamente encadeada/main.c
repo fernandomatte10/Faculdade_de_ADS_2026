@@ -6,19 +6,21 @@ int main(void) {
     int opcao, valor;                               // Armazena a opção e os valores digitados pelo usuário.
 
     do {                                            // Repete o menu até que o usuário escolha a opção 0.
-        printf("\n===== MENU =====\n");             // Exibe o título do menu.
-        printf("1 - Inserir no inicio\n");          // Opção 1.
-        printf("2 - Inserir no fim\n");             // Opção 2.
-        printf("3 - Imprimir lista\n");             // Opção 3.
-        printf("4 - Imprimir reverso\n");           // Opção 4.
-        printf("5 - Buscar valor\n");               // Opção 5.
-        printf("6 - Remover do inicio\n");          // Opção 6.
-        printf("7 - Remover do fim\n");             // Opção 7.
-        printf("8 - Remover por valor\n");          // Opção 8.
-        printf("9 - Destruir lista\n");             // Opção 9.
-        printf("10 - Insere depois de um No especifico\n");
-        printf("0 - Sair\n");                       // Opção 0.
-        printf("Escolha: ");                        // Solicita a opção desejada.
+        printf("\n===== MENU =====\n");                      // Exibe o título do menu.
+        printf("1 - Inserir no inicio\n");                   // Opção 1.
+        printf("2 - Inserir no fim\n");                      // Opção 2.
+        printf("3 - Imprimir lista\n");                      // Opção 3.
+        printf("4 - Imprimir reverso\n");                    // Opção 4.
+        printf("5 - Buscar valor\n");                        // Opção 5.
+        printf("6 - Remover do inicio\n");                   // Opção 6.
+        printf("7 - Remover do fim\n");                      // Opção 7.
+        printf("8 - Remover por valor\n");                   // Opção 8.
+        printf("9 - Destruir lista\n");                      // Opção 9.
+        printf("10 - Inserir depois de um No especifico\n"); // Opção 10.
+        printf("11 - Inserir antes de um No especifico\n");  // Opção 11.
+        printf("12 - Inserir de forma ordenada\n");          // Opção 12.
+        printf("0 - Sair\n");                                // Opção 0.
+        printf("Escolha: ");                                 // Solicita a opção desejada.
 
         scanf("%d", &opcao);                        // Lê a opção escolhida.
 
@@ -98,14 +100,42 @@ int main(void) {
                 break;                              // Encerra o caso atual.
             }
 
-            case 10: {
-                printf("Valor do No: ");               
-                scanf("%d", &valor);
+            case 10: {                              // Insere depois de um nó específico
+                printf("Valor do No: ");            // Solicita o valor do nó de referência 
+                scanf("%d", &valor);                // Lê o valor digitado
 
-                No* p = busca(L, valor);
-                insereDepois(L, p, valor);
+                No* p = busca(L, valor);            // Busca o nó correspondente ao valor fornecido
+                insereDepois(L, p, valor);          // Insere um novo nó com o valor fornecido após o nó encontrado
 
-                break;
+                break;                              // Encerra o caso atual
+            }
+
+            case 11: {                              // Insere antes de um nó específico
+                printf("Valor do No: ");            // Solicita o valor do nó de referência           
+                scanf("%d", &valor);                // Lê o valor digitado
+
+                No* p = busca(L, valor);            // Busca o nó correspondente ao valor fornecido
+                insereAntes(L, p, valor);           // Insere um novo nó com o valor fornecido antes do nó encontrado
+
+                break;                              // Encerra o caso atual
+            }
+
+            case 12: {                              // Insere de forma ordenada na lista
+                printf("Valor: ");                  // Solicita o valor a ser inserido     
+                scanf("%d", &valor);                // Lê o valor digitado           
+
+                insereOrdenado(L, valor);           // Insere o valor na lista mantendo a ordem crescente        
+
+                break;                              // Encerra o caso atual              
+            }
+
+            case 13: {                              // Insere de forma ordenada na lista
+                printf("Valor: ");                  // Solicita o valor a ser inserido       
+                scanf("%d", &valor);                // Lê o valor digitado       
+
+                insereOrdenado(L, valor);           // Insere o valor na lista mantendo a ordem crescente        
+
+                break;                              // Encerra o caso atual                      
             }
 
             case 0: {                               // Encerra o programa.
