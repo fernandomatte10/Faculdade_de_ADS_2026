@@ -98,9 +98,8 @@ int main(void) {
                 break;                              // Encerra o caso atual.
             }
 
-            case 10:
-            
-                printf("Valor: ");                  // Solicita o valor a ser procurado.
+            case 10: {
+                printf("Valor do No: ");                  // Solicita o valor a ser procurado.
                 scanf("%d", &valor);                // Lê o valor digitado.
 
                 No* p = busca(L, valor);            // Busca o nó e recebe seu endereço ou NULL.
