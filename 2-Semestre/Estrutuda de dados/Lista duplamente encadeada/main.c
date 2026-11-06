@@ -99,16 +99,14 @@ int main(void) {
             }
 
             case 10: {
-                printf("Valor do No: ");                  // Solicita o valor a ser procurado.
-                scanf("%d", &valor);                // Lê o valor digitado.
+                printf("Valor do No: ");               
+                scanf("%d", &valor);
 
-                No* p = busca(L, valor);            // Busca o nó e recebe seu endereço ou NULL.
+                No* p = busca(L, valor);
+                insereDepois(L, p, valor);
 
-                if (p != NULL) {                    // Verifica se o valor foi encontrado.
-                    printf("Encontrado! Valor = %d | Endereco = %p\n", p->dado, (void*) p); // Exibe o valor e o endereço do nó.
-                } else {                            // Executa caso o valor não seja encontrado.
-                    printf("Valor nao encontrado.\n"); // Informa que o valor não existe.
-                }
+                break;
+            }
 
             case 0: {                               // Encerra o programa.
                 destroiLista(L);                    // Libera a memória da lista.

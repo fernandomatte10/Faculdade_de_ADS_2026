@@ -88,11 +88,11 @@ void imprime(const Lista* L) {
     printf("[");                                // Inicia a representação da lista.
 
     while (p != NULL) {                         // Percorre a lista até o final.
-        printf("%d", p->dado);                  // Exibe o valor do nó atual.
+        printf("%d" , p->dado);                 // Exibe o valor do nó atual.
         p = p->prox;                            // Avança para o próximo nó.
     }
 
-    printf("]\n");                             // Finaliza a representação da lista.
+    printf("]\n");                              // Finaliza a representação da lista.
 }
 
 // Imprime os elementos da lista do fim ao início.
@@ -198,7 +198,7 @@ void removeValor(Lista* L, int valor) {
 
 
 
-void insereDepois(Lista* L, No* p, int valor) { // Insere depois de um No especifico
+void insereDepois(Lista* L, No* p, int valor) { // Insere depois de um No especifico.
 
     if (listaVazia(L)) {                        // Verifica se a lista possui elementos.
         printf("Lista vazia!\n");               // Informa que a lista está vazia.
@@ -219,38 +219,19 @@ void insereDepois(Lista* L, No* p, int valor) { // Insere depois de um No especi
         exit(EXIT_FAILURE);                     // Encerra o programa em caso de falha.
     }
     
-    novo->dado = valor;                         // Armazena o valor no novo nó.
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        void insereInicio(Lista* L, int valor) {
-    No* novo = malloc(sizeof(No));              // Aloca memória para o novo nó.
+    printf("Valor para inserir: ");
+    scanf("%d", &valor);
 
-    if (novo == NULL) {                         // Verifica se a alocação de memória falhou.
-        perror("malloc falhou");                // Exibe uma mensagem de erro.
-        exit(EXIT_FAILURE);                     // Encerra o programa em caso de falha.
+    if(p->prox == NULL) {                       // Verifica se o nó especificado é o último da lista.
+        insereFim(L, valor);                    // Se for, insere no final da lista.
+        return;                                 // Encerra a função após a inserção.
     }
-
-    novo->dado = valor;                         // Armazena o valor no novo nó.
-    novo->ant = NULL;                           // O novo primeiro nó não possui anterior.
-    novo->prox = L->ini;                        // Aponta para o antigo primeiro nó.
-
-    if (L->ini != NULL)                         // Verifica se a lista já possui elementos.
-        L->ini->ant = novo;                     // Atualiza o anterior do antigo primeiro nó.
-    else                                        // Caso a lista esteja vazia.
-        L->fim = novo;                          // O novo nó também será o último.
-
-    L->ini = novo;                              // Atualiza o início da lista.
-    L->n++;                                     // Incrementa a quantidade de nós.
+    if(p->prox != NULL) {                       // Verifica se o nó especificado não é o último da lista.
+        novo->dado = valor;                     // Armazena o valor no novo nó.
+        novo->prox = p->prox;                   // O próximo do novo nó aponta para o próximo do nó especificado.
+        novo->ant = p;                          // O anterior do novo nó aponta para o nó especificado.
+        p->prox->ant = novo;                    // O anterior do próximo nó aponta para o novo nó.
+        p->prox = novo;                         // O próximo do nó especificado aponta para o novo nó.
+    }
+    L->n++;                                     // Incrementa a quantidade de nós na lista.
 }
