@@ -19,6 +19,7 @@ int main(void) {
         printf("10 - Inserir depois de um No especifico\n"); // Opção 10.
         printf("11 - Inserir antes de um No especifico\n");  // Opção 11.
         printf("12 - Inserir de forma ordenada\n");          // Opção 12.
+        printf("13 - Consultar tamanho da lista\n");         // Opção 13.
         printf("0 - Sair\n");                                // Opção 0.
         printf("Escolha: ");                                 // Solicita a opção desejada.
 
@@ -61,10 +62,10 @@ int main(void) {
 
                 No* p = busca(L, valor);            // Busca o nó e recebe seu endereço ou NULL.
 
-                if (p != NULL) {                    // Verifica se o valor foi encontrado.
+                if (p != NULL) {                                                            // Verifica se o valor foi encontrado.
                     printf("Encontrado! Valor = %d | Endereco = %p\n", p->dado, (void*) p); // Exibe o valor e o endereço do nó.
-                } else {                            // Executa caso o valor não seja encontrado.
-                    printf("Valor nao encontrado.\n"); // Informa que o valor não existe.
+                } else {                                                                    // Executa caso o valor não seja encontrado.
+                    printf("Valor nao encontrado.\n");                                      // Informa que o valor não existe.
                 }
 
                 break;                              // Encerra o caso atual.
@@ -121,21 +122,17 @@ int main(void) {
             }
 
             case 12: {                              // Insere de forma ordenada na lista
-                printf("Valor: ");                  // Solicita o valor a ser inserido     
-                scanf("%d", &valor);                // Lê o valor digitado           
+                printf("Valor: ");                  // Solicita o valor a ser inserido
+                scanf("%d", &valor);                // Lê o valor digitado
 
-                insereOrdenado(L, valor);           // Insere o valor na lista mantendo a ordem crescente        
+                insereOrdenado(L, valor);           // Insere o valor na lista de forma ordenada
 
-                break;                              // Encerra o caso atual              
+                break;                              // Encerra o caso atual
             }
-
-            case 13: {                              // Insere de forma ordenada na lista
-                printf("Valor: ");                  // Solicita o valor a ser inserido       
-                scanf("%d", &valor);                // Lê o valor digitado       
-
-                insereOrdenado(L, valor);           // Insere o valor na lista mantendo a ordem crescente        
-
-                break;                              // Encerra o caso atual                      
+            
+            case 13: {
+                printf("%d Nos na lista", L->n);
+                break;
             }
 
             case 0: {                               // Encerra o programa.
