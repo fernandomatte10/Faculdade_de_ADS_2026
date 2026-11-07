@@ -1,0 +1,13 @@
+public class Serie extends Conteudo {
+    private int temporadas;
+
+    public Serie(String titulo, int duracao, int temporadas) {
+        super(titulo, duracao);
+        this.temporadas = temporadas;
+    }
+
+    @Override
+    public String exibirDetalhes() {
+        return "Série: " + super.exibirDetalhes() + " - Temporadas: " + temporadas;
+    }
+}
